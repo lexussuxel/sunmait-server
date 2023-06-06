@@ -1,14 +1,16 @@
 const { CARDS } = require("./mockData.module");
 
-class CardsController{
-    getItems(req, res){
-        const {search} = req.params;
-        return res.json({data: CARDS.filter(
-            (c) =>
-                c.title.toLowerCase().includes(search.toLowerCase()) ||
-                c.text.toLowerCase().includes(search.toLowerCase())
-        )});
-    }
+class CardsController {
+  getItems(req, res) {
+    const { search } = req.params;
+    return res.json({
+      data: CARDS.filter(
+        (c) =>
+          c.title.toLowerCase().includes(search.toLowerCase()) ||
+          c.text.toLowerCase().includes(search.toLowerCase()),
+      ),
+    });
+  }
 }
 
-module.exports = new CardsController()
+module.exports = new CardsController();
