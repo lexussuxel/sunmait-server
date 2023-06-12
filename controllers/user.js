@@ -4,10 +4,10 @@ class UserController {
   authentification(req, res) {
     const { username, password } = req.body;
 
-    if (username != LOGIN_MOCK.username && password != LOGIN_MOCK.password) {
-      return res.json({ username });
+    if (username == LOGIN_MOCK.username && password == LOGIN_MOCK.password) {
+      return res.json( true );
     }
-    return res.json({ message: "incorrect password or email" });
+    return res.status(400).send({message: "incorrect username or password"});
   }
 }
 
